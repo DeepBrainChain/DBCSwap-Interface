@@ -66,6 +66,9 @@ export function usePrefetchSwappableTokens(input: Maybe<TradeableAsset>): void {
 }
 
 const swappableTokensQueryKey = (params?: SwappableTokensParams): QueryKey => {
+  console.log("swappableTokensQueryKey", params);
+  
+  
   return [TRADING_API_CACHE_KEY, uniswapUrls.tradingApiPaths.swappableTokens, params?.tokenIn, params?.tokenInChainId]
 }
 

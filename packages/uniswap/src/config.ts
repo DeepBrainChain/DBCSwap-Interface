@@ -143,6 +143,9 @@ const _config: Config = {
   firebaseAppCheckDebugToken: process.env.FIREBASE_APP_CHECK_DEBUG_TOKEN || FIREBASE_APP_CHECK_DEBUG_TOKEN,
 }
 
+console.log("_config", _config);
+
+
 export const config = Object.freeze(_config)
 
 if (isNonJestDev) {

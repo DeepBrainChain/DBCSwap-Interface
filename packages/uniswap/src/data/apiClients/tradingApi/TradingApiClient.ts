@@ -68,6 +68,9 @@ export type BridgeQuoteResponse = QuoteResponse & {
 
 export const TRADING_API_CACHE_KEY = 'TradingApi'
 
+
+console.log("TradingApiClient.tradingApiKey", config.tradingApiKey, config);
+
 const TradingApiClient = createApiClient({
   baseUrl: uniswapUrls.tradingApiUrl,
   additionalHeaders: {
