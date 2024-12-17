@@ -132,16 +132,16 @@ export default function Navbar() {
         <Right>
           {collapseSearchBar && <SearchBar maxHeight={NAV_SEARCH_MAX_HEIGHT} fullScreen={isSmallScreen} />}
           {isNftPage && sellPageState !== ProfilePageStateType.LISTING && <Bag />}
-          {isSignInExperimentControl && !isSignInExperimentControlLoading && isLandingPage && !isSmallScreen && (
+          {/* {isSignInExperimentControl && !isSignInExperimentControlLoading && isLandingPage && !isSmallScreen && (
             <NewUserCTAButton />
-          )}
+          )} */}
           {!account.isConnected && !account.isConnecting && <PreferenceMenu />}
           {!hideChainSelector && <ChainSelector />}
           {isTestnetModeEnabled && <TestnetModeTooltip />}
           <Web3Status />
-          {!isSignInExperimentControl && !isSignInExperimentControlLoading && !account.address && !isMediumScreen && (
+          {/* {!isSignInExperimentControl && !isSignInExperimentControlLoading && !account.address && !isMediumScreen && (
             <NewUserCTAButton />
-          )}
+          )} */}
         </Right>
       </NavContents>
     </Nav>
