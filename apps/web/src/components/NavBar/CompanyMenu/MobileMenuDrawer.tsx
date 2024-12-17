@@ -86,7 +86,7 @@ export function MobileMenuDrawer({ isOpen, closeMenu }: { isOpen: boolean; close
   }, [isOpen])
 
   return (
-    <NavDropdown dropdownRef={dropdownRef} isOpen={isOpen} dataTestId="company-menu-mobile-drawer">
+    <NavDropdown dropdownRef={dropdownRef} isOpen={isOpen || true} dataTestId="company-menu-mobile-drawer">
       <Flex pt="$spacing12" pb="$spacing32" px="$spacing24">
         <AnimateTransition
           currentIndex={getSettingsViewIndex(settingsView)}
@@ -112,7 +112,7 @@ export function MobileMenuDrawer({ isOpen, closeMenu }: { isOpen: boolean; close
                 ))}
               </MenuSection>
 
-              {menuContent.map((sectionContent, index) => (
+              {/* {menuContent.map((sectionContent, index) => (
                 <MenuSection key={`${sectionContent.title}_${index}`} title={sectionContent.title}>
                   {sectionContent.items.map(({ label, href, internal }, index) => (
                     <StyledMenuLink
@@ -124,13 +124,13 @@ export function MobileMenuDrawer({ isOpen, closeMenu }: { isOpen: boolean; close
                     />
                   ))}
                 </MenuSection>
-              ))}
+              ))} */}
 
               <MenuSection title={t('common.displaySettings')}>
                 <PreferenceSettings showHeader={false} setSettingsView={changeView} />
               </MenuSection>
 
-              <DownloadApp onClick={closeMenu} />
+              {/* <DownloadApp onClick={closeMenu} /> */}
               <Socials iconSize="25px" />
             </Flex>
           </Accordion>

@@ -33,6 +33,8 @@ const UniIcon = styled.div`
   gap: 4px;
 `
 
+
+// navbar中的品牌图标
 export function CompanyMenu() {
   const popoverRef = useRef<Popover>(null)
   const isSmallScreen = !useScreenSize()['sm']
@@ -63,7 +65,7 @@ export function CompanyMenu() {
             <NavIcon width="48" height="48" />
             {isLargeScreen && (
               <Text variant="subheading1" color="$accent1" userSelect="none">
-                Uniswap
+                DeepBrain Chain
               </Text>
             )}
           </UniIcon>

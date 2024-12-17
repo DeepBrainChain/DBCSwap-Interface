@@ -101,9 +101,9 @@ export function MenuDropdown({ close }: { close?: () => void }) {
             />
           ))}
           <Separator />
-          <DownloadApp onClick={close} />
+          {/* <DownloadApp onClick={close} /> */}
           <Socials iconSize="25px" />
-          {isConversionTrackingEnabled && <LegalAndPrivacyMenu closeMenu={close} />}
+          {/* {isConversionTrackingEnabled && <LegalAndPrivacyMenu closeMenu={close} />} */}
         </Flex>
       </Container>
     </NavDropdown>

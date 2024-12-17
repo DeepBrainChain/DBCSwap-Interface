@@ -2,7 +2,7 @@ import { MenuItem, useMenuContent } from 'components/NavBar/CompanyMenu/Content'
 import { MenuLink } from 'components/NavBar/CompanyMenu/MenuDropdown'
 import { useTabsContent } from 'components/NavBar/Tabs/TabsContent'
 import deprecatedStyled, { useTheme } from 'lib/styled-components'
-import { Discord, Github, Twitter } from 'pages/Landing/components/Icons'
+import { Discord, Github, Telegram, Twitter } from 'pages/Landing/components/Icons'
 import { Wiggle } from 'pages/Landing/components/animations'
 import { useMemo } from 'react'
 import { useTogglePrivacyPolicy } from 'state/application/hooks'
@@ -33,21 +33,28 @@ const PolicyLink = styled(Text, {
 export function Socials({ iconSize }: { iconSize?: string }) {
   return (
     <Flex row gap="$spacing24" maxHeight={iconSize} alignItems="flex-start">
-      <SocialIcon $hoverColor="#00C32B">
+      {/* <SocialIcon $hoverColor="#00C32B">
         <Anchor href="https://github.com/Uniswap" target="_blank">
           <Github size={iconSize} fill="inherit" />
         </Anchor>
-      </SocialIcon>
-      <SocialIcon $hoverColor="#20BAFF">
-        <Anchor href="https://x.com/Uniswap" target="_blank">
+      </SocialIcon> */}
+      <SocialIcon $hoverColor="black">
+        <Anchor href="https://x.com/DeepBrainChain" target="_blank">
           <Twitter size={iconSize} fill="inherit" />
         </Anchor>
       </SocialIcon>
-      <SocialIcon $hoverColor="#5F51FF">
+
+      <SocialIcon $hoverColor="#20BAFF">
+        <Anchor href="https://t.me/deepbrainchainglobal" target="_blank">
+          <Telegram size={iconSize} fill="inherit" />
+        </Anchor>
+      </SocialIcon>
+
+      {/* <SocialIcon $hoverColor="#5F51FF">
         <Anchor href="https://discord.com/invite/uniswap" target="_blank">
           <Discord size={iconSize} fill="inherit" />
         </Anchor>
-      </SocialIcon>
+      </SocialIcon> */}
     </Flex>
   )
 }
@@ -77,7 +84,7 @@ export function Footer() {
   const tabsContent = useTabsContent()
   const appSectionItems: MenuItem[] = useMemo(() => {
     return tabsContent.map((tab) => ({
-      label: tab.title,
+      label: tab?.title,
       href: tab.href,
       internal: true,
     }))
@@ -99,13 +106,13 @@ export function Footer() {
         </Flex>
         <Flex row $md={{ flexDirection: 'column' }} height="100%" gap="$spacing16">
           <Flex row gap="$spacing16" justifyContent="space-between" $md={{ width: 'auto' }}>
-            <FooterSection title={t('common.app')} items={appSectionItems} />
-            <FooterSection title={sections[0].title} items={[...sections[0].items, brandAssets]} />
+            <FooterSection title={t('common.app')} items={appSectionItems || []} />
+            <FooterSection title={sections[0]?.title} items={[...(sections[0].items || []) , brandAssets]} />
           </Flex>
-          <Flex row gap="$spacing16" $md={{ width: 'auto' }}>
-            <FooterSection title={sections[1].title} items={sections[1].items} />
-            <FooterSection title={sections[2].title} items={sections[2].items} />
-          </Flex>
+          {/* <Flex row gap="$spacing16" $md={{ width: 'auto' }}>
+            <FooterSection title={sections[1]?.title} items={sections[1].items || []} />
+            <FooterSection title={sections[2]?.title} items={sections[2].items || []} />
+          </Flex> */}
         </Flex>
         <Flex $md={{ display: 'flex' }} display="none">
           <Socials iconSize={SOCIAL_ICONS_SIZE} />
