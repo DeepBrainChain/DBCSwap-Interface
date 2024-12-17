@@ -9,6 +9,8 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin')
 const { IgnorePlugin, ProvidePlugin, DefinePlugin } = require('webpack')
 const { RetryChunkLoadPlugin } = require('webpack-retry-chunk-load-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const { codeInspectorPlugin } = require('code-inspector-plugin');
+
 
 const commitHash = execSync('git rev-parse HEAD').toString().trim()
 const isProduction = process.env.NODE_ENV === 'production'
@@ -87,6 +89,9 @@ module.exports = {
   },
   webpack: {
     plugins: [
+      codeInspectorPlugin({
+        bundler: 'webpack',
+      }),
       new DefinePlugin({
         __DEV__: isDev,
       }),
