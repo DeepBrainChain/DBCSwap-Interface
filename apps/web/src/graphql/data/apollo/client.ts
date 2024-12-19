@@ -1,7 +1,8 @@
-import { ApolloClient, FieldFunctionOptions, HttpLink, InMemoryCache } from '@apollo/client'
+import { ApolloClient, FieldFunctionOptions, HttpLink, InMemoryCache, from } from '@apollo/client'
 import { Reference, StoreObject, relayStylePagination } from '@apollo/client/utilities'
 import { createSubscriptionLink } from 'utilities/src/apollo/SubscriptionLink'
 import { splitSubscription } from 'utilities/src/apollo/splitSubscription'
+import { onError } from '@apollo/client/link/error'
 
 const API_URL = process.env.REACT_APP_AWS_API_ENDPOINT
 const REALTIME_URL = process.env.REACT_APP_AWS_REALTIME_ENDPOINT
@@ -12,9 +13,27 @@ if (!API_URL || !REALTIME_URL || !REALTIME_TOKEN) {
 
 const httpLink = new HttpLink({ uri: API_URL })
 
+console.log('API_URL', API_URL)
+debugger
+
+// 添加错误处理链接
+const errorLink = onError(({ graphQLErrors, networkError, operation }) => {
+  if (graphQLErrors) {
+    graphQLErrors.forEach(({ message, locations, path }) => {
+      console.error(
+        `[GraphQL 错误]: Message: ${message}, Location: ${locations}, Path: ${path}, Operation: ${operation.operationName}`
+      )
+    })
+  }
+  if (networkError) {
+    console.error(`[网络错误]: ${networkError}`)
+  }
+})
+
+// 修改 client 初始化，使用 from 组合链接
 export const apolloClient = new ApolloClient({
   connectToDevTools: true,
-  link: httpLink,
+  link: from([errorLink, httpLink]),
   headers: {
     'Content-Type': 'application/json',
     Origin: 'https://app.uniswap.org',
@@ -23,16 +42,19 @@ export const apolloClient = new ApolloClient({
     typePolicies: {
       Query: {
         fields: {
-          nftBalances: relayStylePagination(['ownerAddress', 'filter']),
-          nftAssets: relayStylePagination(),
-          nftActivity: relayStylePagination(),
-          token: {
-            // Tokens should be cached by their chain/address, *not* by the ID returned by the server.
-            // This is because the ID may change depending on fields requested.
-            read(_, { args, toReference }): Reference | undefined {
-              return toReference({ __typename: 'Token', chain: args?.chain, address: args?.address?.toLowerCase() })
-            },
-          },
+          // nftBalances: relayStylePagination(['ownerAddress', 'filter']),
+          // nftAssets: relayStylePagination(),
+          // nftActivity: relayStylePagination(),
+          // token: {
+          //   // Tokens should be cached by their chain/address, *not* by the ID returned by the server.
+          //   // This is because the ID may change depending on fields requested.
+          //   read(_, { args, toReference }): Reference | undefined {
+          //     return toReference({ __typename: 'Token', chain: args?.chain, address: args?.address?.toLowerCase() })
+          //   },
+          // },
+
+          pools: relayStylePagination(),
+
         },
       },
       Token: {
@@ -96,7 +118,7 @@ export const apolloClient = new ApolloClient({
 
 // This is done after creating the client so that client may be passed to `createSubscriptionLink`.
 const subscriptionLink = createSubscriptionLink({ uri: REALTIME_URL, token: REALTIME_TOKEN }, apolloClient)
-apolloClient.setLink(splitSubscription(subscriptionLink, httpLink))
+apolloClient.setLink(from([errorLink, splitSubscription(subscriptionLink, httpLink)]))
 
 function ignoreIncomingNullValue(
   existing: Reference | StoreObject,

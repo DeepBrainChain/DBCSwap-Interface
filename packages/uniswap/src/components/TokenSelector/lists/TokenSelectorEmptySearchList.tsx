@@ -15,7 +15,10 @@ function _TokenSelectorEmptySearchList({
 }): JSX.Element {
   const { t } = useTranslation()
 
+
+  console.log("_TokenSelectorEmptySearchList chainFilter", chainFilter)
   const { data: sections, loading, error, refetch } = useTokenSectionsForEmptySearch(chainFilter)
+  console.log("_TokenSelectorEmptySearchList sections", sections, loading, error, refetch)
 
   return (
     <TokenSelectorList

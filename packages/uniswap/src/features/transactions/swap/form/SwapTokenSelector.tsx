@@ -136,7 +136,6 @@ export function SwapTokenSelector({ isModalOpen }: { isModalOpen: boolean }): JS
   const getChainId = (): UniverseChainId | undefined => {
     const selectedChainId = filteredChainIds[selectingCurrencyField ?? CurrencyField.INPUT]
 
-    console.log('selectedChainId', selectedChainId, filteredChainIds, selectingCurrencyField)
 
     // allow undefined for prod networks
     if (selectedChainId || !isTestnetModeEnabled) {

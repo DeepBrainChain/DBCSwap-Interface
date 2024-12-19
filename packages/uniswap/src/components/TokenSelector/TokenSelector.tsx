@@ -183,6 +183,7 @@ export function TokenSelectorContent({
   const tokenSelector = useMemo(() => {
     if (searchInFocus && !searchFilter && !isTestnetModeEnabled) {
       return (
+        // 渲染Token列表
         <TokenSelectorEmptySearchList
           chainFilter={chainFilter}
           isKeyboardOpen={isKeyboardOpen}
@@ -301,6 +302,8 @@ export function TokenSelectorContent({
               onFocus={onFocus}
             />
           </Flex>
+
+
           {isLimits && (
             <Flex
               row
@@ -314,6 +317,8 @@ export function TokenSelectorContent({
               <Text variant="body3">{t('limits.form.disclaimer.mainnet.short')}</Text>
             </Flex>
           )}
+
+          {/* token列表 */}
           {isSurfaceReady && <Flex grow>{tokenSelector}</Flex>}
         </Flex>
       </Trace>

@@ -59,7 +59,6 @@ export function useEnabledChains(): EnabledChainsInfo {
   const connectedWalletChainIds = [1]
   const isTestnetModeEnabled = useSelector(selectIsTestnetModeEnabled)
 
-  console.log('useEnabledChains方法', { featureFlaggedChainIds, connectedWalletChainIds, isTestnetModeEnabled })
 
   const {
     chains: unorderedChains,
@@ -76,8 +75,6 @@ export function useEnabledChains(): EnabledChainsInfo {
   )
 
   const orderedChains = useOrderedChainIds(unorderedChains)
-
-  console.log('useEnabledChains', { chains: orderedChains, gqlChains, defaultChainId, isTestnetModeEnabled })
 
   return useMemo(() => {
     return { chains: orderedChains, gqlChains, defaultChainId, isTestnetModeEnabled }
