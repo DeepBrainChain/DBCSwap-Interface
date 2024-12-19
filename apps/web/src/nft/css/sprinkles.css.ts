@@ -202,7 +202,7 @@ export const vars = createGlobalTheme(':root', {
     outline: 'rgba(153, 161, 189, 0.24)',
     lightGrayOverlay: '#99A1BD14',
     accentActiveSoft: '#311C31',
-    accentActive: '#FC72FF',
+    accentActive: 'orange',
     //NEW COLORS FOR SPORE - need to define light/dark here cause they are root colors now (different system)
     neutral1_dark: '#FFFFFF',
     neutral2_dark: '#9B9B9B',
@@ -222,7 +222,7 @@ export const vars = createGlobalTheme(':root', {
     surface3_light: '#2222220d',
     surface4_light: '#ffffffa3',
     surface5_light: '#0000000a',
-    accent1_light: '#FC72FF',
+    accent1_light: 'yellow',
     accent2_light: '#FFEFFF',
     success: '#40B66B',
     critical: '#FF5F52',

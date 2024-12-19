@@ -68,6 +68,7 @@ const accentColors = {
   purpleDark: '#1A0040',
 }
 
+
 export const colors = {
   white: '#FFFFFF',
   black: '#000000',
@@ -91,7 +92,7 @@ export const DEP_accentColors = {
   green400: '#209853',
   magenta100: '#FAD8F8',
   magenta50: '#FFF1FE',
-  magentaVibrant: '#FC72FF',
+  magentaVibrant: 'orange',
   red200: '#FEA79B',
   red300: '#FD766B',
   red400: '#FA2B39',
@@ -178,11 +179,12 @@ const sporeLight = {
   surface4: 'rgba(255,255,255,0.64)',
   surface5: 'rgba(0,0,0,0.04)',
 
-  accent1: '#FC72FF',
-  accent1Hovered: '#FD3CFE',
-  accent2: '#FEF4FF',
-  accent2Hovered: '#FEEBFC',
-  accent3: '#222222',
+  accent1: 'blue',
+  accent1Hovered: '#66A3FF',
+  accent2: 'green',
+  accent2Hovered: '#66D9B8', // 添加对应的hover颜色
+
+  accent3: 'orange',
   accent3Hovered: colors.black,
 
   DEP_accentSoft: '#FC72FF33', //33 = 20%
@@ -225,9 +227,9 @@ const sporeDark = {
   surface4: 'rgba(255,255,255,0.20)',
   surface5: 'rgba(0,0,0,0.04)',
 
-  accent1: '#FC72FF',
+  accent1: 'green',
   accent1Hovered: '#FD3CFE',
-  accent2: '#361A37',
+  accent2: 'red',
   accent2Hovered: '#510D43',
   accent3: colors.white,
   accent3Hovered: '#F5F5F5',

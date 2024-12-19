@@ -106,6 +106,8 @@ export function NetworkFilter({
     chainIds,
   })
 
+  console.log('networkOptions', networkOptions, chainIds)
+
   return (
     <ActionSheetDropdown
       options={networkOptions}

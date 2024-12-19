@@ -89,8 +89,8 @@ export default function WalletModal() {
           {isSignIn ? t('nav.signIn.button') : isLogIn ? t('nav.logIn.button') : t('common.connectAWallet.button')}
         </Text>
       </AutoRow>
-      <UniswapWalletOptions />
-      <OtherWalletsDividerRow
+      {/* <UniswapWalletOptions /> */}
+      {/* <OtherWalletsDividerRow
         align="center"
         padding="8px 0px"
         clickable={isUniExtensionAvailable}
@@ -104,7 +104,7 @@ export default function WalletModal() {
           {isUniExtensionAvailable ? showOtherWallets ? <StyledExpandIcon /> : <StyledCollapsedIcon /> : null}
         </Row>
         <Line />
-      </OtherWalletsDividerRow>
+      </OtherWalletsDividerRow> */}
       <Column gap="md" flex="1">
         <Row flex="1" align="flex-start">
           <OptionGrid data-testid="option-grid" closed={isUniExtensionAvailable && !showOtherWallets}>
@@ -113,7 +113,7 @@ export default function WalletModal() {
             ))}
           </OptionGrid>
         </Row>
-        <Column gap="md">
+        {/* <Column gap="md">
           <TextSectionWrapper>
             <PrivacyPolicyNotice />
           </TextSectionWrapper>
@@ -127,7 +127,7 @@ export default function WalletModal() {
               </TextSectionWrapper>
             </>
           )}
-        </Column>
+        </Column> */}
       </Column>
     </Wrapper>
   )
