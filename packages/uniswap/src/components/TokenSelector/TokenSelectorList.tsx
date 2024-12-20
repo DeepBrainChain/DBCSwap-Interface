@@ -202,6 +202,8 @@ function _TokenSelectorList({
     )
   }
 
+  console.log('loading', loading, sections, expandedItems)
+
   return (
     <AnimateTransition animationType="fade" currentIndex={(!sections || !sections.length) && loading ? 0 : 1}>
       <Flex grow px="$spacing16">

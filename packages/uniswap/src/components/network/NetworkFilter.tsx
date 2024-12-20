@@ -106,7 +106,7 @@ export function NetworkFilter({
     chainIds,
   })
 
-  console.log('networkOptions', networkOptions, chainIds)
+  console.log('networkOptions', networkOptions, chainIds, includeAllNetworks)
 
   return (
     <ActionSheetDropdown

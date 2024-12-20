@@ -35,6 +35,15 @@ export const USDT = new Token(
   'Tether USD',
 )
 
+export const USDC_DEEPCBRAINCHAIN = new Token(
+  // UniverseChainId.DeepBrainChain,
+  19850818 ,
+  '0xC260ed583545d036ed99AA5C76583a99B7E85D26',
+  18,
+  'DGC',
+  'DecentralGPT (DGC)',
+)
+
 export const USDC_MAINNET = new Token(
   UniverseChainId.Mainnet,
   '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',

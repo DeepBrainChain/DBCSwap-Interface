@@ -14,6 +14,7 @@ import {
   WORLD_CHAIN_LOGO,
   ZKSYNC_LOGO,
   ZORA_LOGO,
+  DEEPCBRAINCHAIN_LOGO,
 } from 'ui/src/assets'
 import { config } from 'uniswap/src/config'
 import {
@@ -37,6 +38,7 @@ import {
   USDC_ZKSYNC,
   USDC_ZORA,
   USDT,
+  USDC_DEEPCBRAINCHAIN,
 } from 'uniswap/src/constants/tokens'
 import { Chain as BackendChainId } from 'uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks'
 import {
@@ -898,6 +900,67 @@ export const UNIVERSE_CHAIN_INFO: Record<UniverseChainId, UniverseChainInfo> = {
       decimals: 18,
       address: '0x4200000000000000000000000000000000000006',
     },
+  } as const satisfies UniverseChainInfo,
+  [UniverseChainId.DeepBrainChain]: {
+    id: UniverseChainId.DeepBrainChain,
+    sdkId: UniswapSDKChainId.DEEPBRAINCHAIN,
+    name: 'DeepBrainChain Testnet',
+    assetRepoNetworkName: 'DeepBrainChain Testnet',
+    backendChain: {
+      chain: BackendChainId.DeepBrainChain as GqlChainId,
+      backendSupported: true,
+      isSecondaryChain: false,
+      nativeTokenBackendAddress: undefined,
+    },
+    blockPerMainnetEpochForChainId: 1,
+    blockWaitMsBeforeWarning: 600000,
+    bridge: 'https://bridge.deepbrainchain.org',
+    chainPriority: 12,
+    docs: 'https://docs.deepbrainchain.org',
+    elementName: ElementName.ChainDeepCBrainChain,
+    explorer: {
+      name: 'DeepBrainChain Explorer',
+      url: 'https://scan.deepbrainchain.org/',
+      apiURL: 'https://api.scan.deepbrainchain.org'
+    },
+    helpCenterUrl: undefined,
+    infoLink: 'https://app.uniswap.org/explore/tokens/deepbrainchain',
+    infuraPrefix: undefined,
+    interfaceName: 'DeepBrainChain Testnet',
+    label: 'DeepBrainChain',
+    logo: DEEPCBRAINCHAIN_LOGO,
+    nativeCurrency: {
+      name: 'DBC',
+      symbol: 'DBC',
+      decimals: 18,
+      address: DEFAULT_NATIVE_ADDRESS,
+      logo: DEEPCBRAINCHAIN_LOGO
+    },
+    networkLayer: NetworkLayer.L1,
+    pendingTransactionsRetryOptions: undefined,
+    rpcUrls: {
+      [RPCType.Public]: {
+        http: [config.quicknodeDeepCBrainChainRpcUrl],
+      },
+      [RPCType.Default]: {
+        http: ['https://rpc-testnet.dbcwallet.io']
+      },
+      [RPCType.Interface]: {
+        http: [config.quicknodeDeepCBrainChainRpcUrl]
+      }
+    },
+    spotPriceStablecoinAmount: CurrencyAmount.fromRawAmount(USDC_DEEPCBRAINCHAIN, 10_000e6),
+    stablecoins: [USDC_DEEPCBRAINCHAIN],
+    statusPage: undefined,
+    supportsInterfaceClientSideRouting: false,
+    supportsGasEstimates: true,
+    urlParam: 'deepbrainchain',
+    wrappedNativeCurrency: {
+      name: 'Wrapped DBC',
+      symbol: 'WDBC',
+      decimals: 18,
+      address: '0x...'
+    }
   } as const satisfies UniverseChainInfo,
 }
 

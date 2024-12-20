@@ -53,15 +53,18 @@ function useConnectedWalletSupportedChains(): UniverseChainId[] {
 }
 
 export function useEnabledChains(): EnabledChainsInfo {
-  const featureFlaggedChainIds = useFeatureFlaggedChainIds()
-  const connectedWalletChainIds = useConnectedWalletSupportedChains()
+  // const featureFlaggedChainIds = useFeatureFlaggedChainIds()
+  // const connectedWalletChainIds = useConnectedWalletSupportedChains()
 
   // 只限于deepbrainchain
-  // const featureFlaggedChainIds = [1]
-  // const connectedWalletChainIds = [1]
+  const featureFlaggedChainIds = [UniverseChainId.DeepBrainChain]
+  const connectedWalletChainIds = [UniverseChainId.DeepBrainChain]
   const isTestnetModeEnabled = useSelector(selectIsTestnetModeEnabled)
 
+  console.log("featureFlaggedChainIds", featureFlaggedChainIds);
+  console.log("connectedWalletChainIds", connectedWalletChainIds);
 
+  
   const {
     chains: unorderedChains,
     gqlChains,
@@ -77,6 +80,8 @@ export function useEnabledChains(): EnabledChainsInfo {
   )
 
   const orderedChains = useOrderedChainIds(unorderedChains)
+  console.log("orderedChains", unorderedChains, orderedChains);
+
 
   return useMemo(() => {
     return { chains: orderedChains, gqlChains, defaultChainId, isTestnetModeEnabled }

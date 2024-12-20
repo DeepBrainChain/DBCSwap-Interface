@@ -25,6 +25,7 @@ export enum UniverseChainId {
   WorldChain = UniswapSDKChainId.WORLDCHAIN,
   Zksync = UniswapSDKChainId.ZKSYNC,
   Zora = UniswapSDKChainId.ZORA,
+  DeepBrainChain = UniswapSDKChainId.DEEPBRAINCHAIN,
 }
 
 export const SUPPORTED_CHAIN_IDS: UniverseChainId[] = [
@@ -40,6 +41,7 @@ export const SUPPORTED_CHAIN_IDS: UniverseChainId[] = [
   UniverseChainId.WorldChain,
   UniverseChainId.Zora,
   UniverseChainId.Zksync,
+  UniverseChainId.DeepBrainChain,
 ]
 
 export const SUPPORTED_TESTNET_CHAIN_IDS: UniverseChainId[] = [UniverseChainId.Sepolia, UniverseChainId.UnichainSepolia]

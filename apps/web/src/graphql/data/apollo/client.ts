@@ -13,8 +13,6 @@ if (!API_URL || !REALTIME_URL || !REALTIME_TOKEN) {
 
 const httpLink = new HttpLink({ uri: API_URL })
 
-console.log('API_URL', API_URL)
-debugger
 
 // 添加错误处理链接
 const errorLink = onError(({ graphQLErrors, networkError, operation }) => {

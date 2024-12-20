@@ -233,6 +233,7 @@ export const ElementName = {
   WalletConnectScan: 'wallet-connect-scan',
   WalletQRCode: 'wallet-qr-code',
   Wrap: 'wrap',
+  ChainDeepCBrainChain: 'chain-deepbrainchain',
   // alphabetize additional values.
 } as const
 

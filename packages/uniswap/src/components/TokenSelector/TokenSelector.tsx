@@ -258,6 +258,9 @@ export function TokenSelectorContent({
     onSendEmptyActionPress,
   ])
 
+  console.log("chainIds || enabledChains", chainIds,enabledChains);
+  
+
   return (
     <Trace
       logImpression={isInterface} // TODO(WEB-5161): Deduplicate shared vs interface-only trace event

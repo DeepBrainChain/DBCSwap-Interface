@@ -60,6 +60,8 @@ export function CurrencySearch({ currencyField, onCurrencySelect, onDismiss, cha
     showSwapNetworkNotification({ chainId, prevChainId })
   }, [currentTab, chainId, prevChainId, isMultichainContext, showSwapNetworkNotification])
 
+  console.log("chainIds ?? chains", chainIds , chains);
+  
   return (
     <Trace
       logImpression

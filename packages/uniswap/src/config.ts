@@ -72,6 +72,7 @@ export interface Config {
   quicknodeSepoliaRpcUrl: string
   tradingApiKey: string
   firebaseAppCheckDebugToken: string
+  quicknodeDeepCBrainChainRpcUrl: string
 }
 
 /**
@@ -141,6 +142,10 @@ const _config: Config = {
     QUICKNODE_SEPOLIA_RPC_URL,
   tradingApiKey: process.env.REACT_APP_TRADING_API_KEY || process.env.TRADING_API_KEY || TRADING_API_KEY,
   firebaseAppCheckDebugToken: process.env.FIREBASE_APP_CHECK_DEBUG_TOKEN || FIREBASE_APP_CHECK_DEBUG_TOKEN,
+  quicknodeDeepCBrainChainRpcUrl:
+    process.env.REACT_APP_QUICKNODE_DEEPCBRAINCHAIN_RPC_URL ||
+    process.env.QUICKNODE_DEEPCBRAINCHAIN_RPC_URL ||
+    'https://rpc-testnet.dbcwallet.io',
 }
 
 console.log("_config", _config);

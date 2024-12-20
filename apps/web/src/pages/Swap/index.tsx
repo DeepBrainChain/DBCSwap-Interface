@@ -271,7 +271,6 @@ function UniversalSwapFlow({
   const navigate = useNavigate()
   const { t } = useTranslation()
   const swapCallback = useSwapCallback()
-  console.log('这是swap执行的方法', swapCallback)
   const wrapCallback = useWrapCallback()
 
   useEffect(() => {
