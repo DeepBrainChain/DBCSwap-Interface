@@ -227,8 +227,7 @@ function Web3StatusInner() {
           onClick={handleWalletDropdownClick}
           ref={ref}
         >
-          {/* <ExistingUserCTAButton /> */}
-          123
+          <ExistingUserCTAButton />
         </Web3StatusConnectWrapper>
       </Trace>
     )

@@ -53,10 +53,12 @@ function useConnectedWalletSupportedChains(): UniverseChainId[] {
 }
 
 export function useEnabledChains(): EnabledChainsInfo {
-  // const featureFlaggedChainIds = useFeatureFlaggedChainIds()
-  // const connectedWalletChainIds = useConnectedWalletSupportedChains()
-  const featureFlaggedChainIds = [1]
-  const connectedWalletChainIds = [1]
+  const featureFlaggedChainIds = useFeatureFlaggedChainIds()
+  const connectedWalletChainIds = useConnectedWalletSupportedChains()
+
+  // 只限于deepbrainchain
+  // const featureFlaggedChainIds = [1]
+  // const connectedWalletChainIds = [1]
   const isTestnetModeEnabled = useSelector(selectIsTestnetModeEnabled)
 
 
