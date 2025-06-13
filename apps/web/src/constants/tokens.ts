@@ -230,6 +230,7 @@ export const BTC_BSC = new Token(ChainId.BNB, '0x7130d2A12B9BCbFAe4f2634d864A1Ee
 export const BUSD_BSC = new Token(ChainId.BNB, '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', 18, 'BUSD', 'BUSD')
 export const DAI_BSC = new Token(ChainId.BNB, '0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3', 18, 'DAI', 'DAI')
 
+export const USDT_DBC = new Token(ChainId.DBC, '0x5155101187F8Faa1aD8AfeC7820c801870F81D52', 18, 'USDT', 'USDT')
 export const USDB_BLAST = new Token(ChainId.BLAST, '0x4300000000000000000000000000000000000003', 18, 'USDB', 'USDB')
 
 export const USDC_AVALANCHE = new Token(
@@ -534,7 +535,7 @@ const STABLECOINS: { [chainId in ChainId]: Token[] } = {
   [ChainId.ZORA]: [],
   [ChainId.ROOTSTOCK]: [],
   [ChainId.BLAST]: [USDB_BLAST],
-  [ChainId.DBC]: [],
+  [ChainId.DBC]: [USDT_DBC],
   [ChainId.DBCTEST]: [],
 }
 
@@ -546,8 +547,6 @@ export function isStablecoin(currency?: Currency): boolean {
 
 export const UNKNOWN_TOKEN_SYMBOL = 'UNKNOWN'
 export const UNKNOWN_TOKEN_NAME = 'Unknown Token'
-
-
 
 export function isDBC(chainId: number): chainId is ChainId.DBC {
   return chainId === ChainId.DBC
@@ -568,22 +567,3 @@ export class DBCNativeCurrency extends NativeCurrency {
     super(chainId, 18, 'DBC', 'DBC') // 默认填入WDBC
   }
 }
-
-
-// class BscNativeCurrency extends NativeCurrency {
-//   equals(other: Currency): boolean {
-//     return other.isNative && other.chainId === this.chainId
-//   }
-
-//   get wrapped(): Token {
-//     if (!isBsc(this.chainId)) throw new Error('Not bnb')
-//     const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
-//     invariant(wrapped instanceof Token)
-//     return wrapped
-//   }
-
-//   public constructor(chainId: number) {
-//     if (!isBsc(chainId)) throw new Error('Not bnb')
-//     super(chainId, 18, 'BNB', 'BNB')
-//   }
-// }

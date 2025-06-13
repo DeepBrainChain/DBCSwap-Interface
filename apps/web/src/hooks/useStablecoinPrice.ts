@@ -7,7 +7,7 @@ import { useRoutingAPITrade } from 'state/routing/useRoutingAPITrade'
 import { useSwapAndLimitContext } from 'state/swap/hooks'
 
 import { SupportedInterfaceChain, asSupportedChain } from 'constants/chains'
-import { CUSD_CELO, CUSD_CELO_ALFAJORES, USDC_MAINNET, DBCNativeCurrency, nativeOnChain, USDC_BSC } from '../constants/tokens'
+import { CUSD_CELO, CUSD_CELO_ALFAJORES, USDC_MAINNET, DBCNativeCurrency, nativeOnChain, USDC_BSC, USDT_DBC } from '../constants/tokens'
 
 // Stablecoin amounts used when calculating spot price for a given currency.
 // The amount is large enough to filter low liquidity pairs.
@@ -17,7 +17,7 @@ export const STABLECOIN_AMOUNT_OUT: { [key in SupportedInterfaceChain]: Currency
   [ChainId.CELO_ALFAJORES]: CurrencyAmount.fromRawAmount(CUSD_CELO_ALFAJORES, 10_000e6),
   [ChainId.BNB]: CurrencyAmount.fromRawAmount(USDC_BSC, 10_000e18),
   [ChainId.DBC]: CurrencyAmount.fromRawAmount(
-    new DBCNativeCurrency(ChainId.DBC) as unknown as Token,  // 这里把原生币作为稳定币，去算 $价格
+    USDT_DBC, // 使用 USDT_DBC 作为稳定币，不再使用 DBC 原生币
     10_000e18
   ),
 }
